@@ -2,10 +2,10 @@
 import dynamic from 'next/dynamic';
 import { useState, useMemo, useCallback,useEffect} from 'react';
 import 'easymde/dist/easymde.min.css'; // 导入 SimpleMDE 的样式
-import { Input } from '@/components/ui/Input';
+import { Input } from '@/components/ui/input';
 import '@/app/styles/markdown.css';
 //import { RadioGroup,RadioGroupItem } from '@/components/ui/radio-group';
-import {Textarea} from '@/components/ui/Textarea';
+import {Textarea} from '@/components/ui/textarea';
 import {uploadImage} from '@/lib/cloudinary';
 import { createClient } from '@/lib/client';
 import {marked} from 'marked';
