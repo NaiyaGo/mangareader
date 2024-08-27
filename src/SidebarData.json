@@ -1,0 +1,42 @@
+[
+    {
+      "id": 1,
+      "cate_name": "Just-Share"
+    },
+    {
+      "id": 2,
+      "cate_name": "Text-to-Video"
+    },
+    {
+      "id": 3,
+      "cate_name": "Text-to-Image"
+    },
+    {
+      "id": 4,
+      "cate_name": "AI-Manga_Comic"
+    },
+    {
+      "id": 5,
+      "cate_name": "AI-Character"
+    },
+    {
+      "id": 6,
+      "cate_name": "Image-to-Video"
+    },
+    {
+      "id": 7,
+      "cate_name": "Image-Generator"
+    },
+    {
+      "id": 8,
+      "cate_name": "Image-Scanning-Tools"
+    },
+    {
+      "id": 9,
+      "cate_name": "Speech-to-Text"
+    },
+    {
+      "id": 10,
+      "cate_name": "AI-Chatbot-Tools"
+    }
+  ]
