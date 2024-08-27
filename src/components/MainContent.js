@@ -8,9 +8,7 @@ const MainContent = () => {
         <div className="flex-1 mr-4">
           <h1 className="text-xl font-bold mb-2">Professional AI Tools Directory at AIMonstr</h1>
           <main className="text-gray-600 text-sm mb-2">
-            Looking for inspiration with AI tools? We&apos;ve got you covered. At AIMonstr, we feature the best
-            AI tools, templates, components, and more available on the web. Get inspired by our curated
-            selection of top-quality AI tool examples.
+          MangaReader is a collection of tools for manga lovers. It includes manga readers, downloaders, and other AI tools to enhance your manga reading experience.
           </main>
           <div className="flex flex-wrap gap-2">
             {['Freemium Tools', 'Free Tools', 'Premium Tools', 'Trial Tools', 'Applications', 'Browser extensions'].map((tag, index) => (
@@ -22,7 +20,7 @@ const MainContent = () => {
         </div>
         <div className="w-64">
         {<AuthButton/ >}
-          <div className="relative">
+          {/* <div className="relative">
             <input
               type="text"
               placeholder="Search AI Tools..."
@@ -33,7 +31,7 @@ const MainContent = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
               </svg>
             </button>
-          </div>
+          </div> */}
           
         </div>
       </div>

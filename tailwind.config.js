@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         'happy-birthday': "url('/happy.png')",
+        'harbour': "url('/harbour.jpg')",
       },
       colors: {
         border: "hsl(var(--border))",

@@ -2,25 +2,28 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import { replaceCate } from '@/lib/replaceCate';
 //import { useRouter } from 'next/router';
 const ToolCard = ({ tool }) => {
-   
+  
+  const displayName=replaceCate(tool.category.cate_name);
   return (
     
-    <div className='shadow-md'>
+    <div className='shadow-md rounded-md'>
             
-        <a className="text-blue-500 hover:underline" href={`/content/${tool.name}`} target="_blank" rel="noreferrer">
-            <Image src={`/${tool.image}`} alt={tool.name}  width={500} 
+        <Link className="text-blue-500 " href={{pathname:`/content/${tool.cardname}`,query:{imgUrl:tool.image_url}}} >
+            <Image src={`${tool.image_url}`} alt={tool.cardname}   width={500} 
           height={192}  className="lazyload w-full h-48 object-cover rounded-lg" />
-        </a>
+        </Link>
         
-        <div>
-            <div>                
-                <p className="text-sm text-green-900 focus:text-red-600  antialiased"><a href={`/tool/${tool.name}`}>{tool.category}</a></p>    
-            </div>
+        <div className='p-1'>
             <div>
-                <p className="text-sm text-gray-600  antialiased"><Link href={`/tool/${tool.name}`}>{tool.description}</Link></p>
+                <p className="text-sm text-gray-600 antialiased "><Link href={`/content/${tool.cardname}`}>{tool.carddescription[0].page_intro}</Link></p>
             </div>
+            <div>                
+                <p className="inline-block rounded-lg  text-sm p-1 text-rose-300 bg-indigo-400 hover:text-white hover:bg-indigo-600 antialiased "><Link href={`/category/${tool.category.cate_name}`}>✧:{displayName}</Link></p>    
+            </div>
+            
         </div>
         
         

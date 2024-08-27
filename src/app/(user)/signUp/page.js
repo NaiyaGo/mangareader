@@ -1,7 +1,7 @@
 // pages/register.js
 "use client"
 import { useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/client';
 import Link from 'next/link';
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -22,7 +22,8 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 处理表单提交逻辑，例如发送请求到API
-    const {data, error} = await supabase.auth.signUp(
+    const supabase = createClient();
+    const { error} = await supabase.auth.signUp(
       {
         email: formData.email,
         password: formData.password,
@@ -45,8 +46,8 @@ export default function Register() {
   };}
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen border-black border-4'>
-      <div className='w-1/4 text-center shadow-xl border-black border-2 rounded-md'>
+    <div className='flex flex-col justify-center items-center min-h-screen '>
+      <div className='w-1/4 text-center shadow-xl border rounded-md'>
         <h1 className='mb-4 text-xl text-center'>Register your account here!</h1>
         <form className='flex flex-col divide-y-4 > * + *' onSubmit={handleSubmit}>
           <input

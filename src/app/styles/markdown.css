@@ -1,0 +1,374 @@
+/* Panel container styling */
+.panel div{
+    margin: 0 auto;
+    font-family: "Microsoft YaHei", arial, sans-serif;
+    color: #444444;
+    line-height: 1;
+    padding: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .panel div{
+        width: 748px;
+        margin: 10px auto;
+    }
+}
+
+.panel h1, .panel h2, .panel h3, .panel h4 {
+    color: #111111;
+    font-weight: 400;
+    margin-top: 1em;
+}
+
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5 {
+    font-family: Georgia, Palatino, serif;
+}
+
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel p, .panel dl {
+    margin-bottom: 16px;
+    padding: 0;
+}
+
+.panel h1 {
+    font-size: 48px;
+    line-height: 54px;
+}
+
+.panel h2 {
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.panel h1, .panel h2 {
+    border-bottom: 1px solid #EFEAEA;
+    padding-bottom: 10px;
+}
+
+.panel h3 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.panel h4 {
+    font-size: 21px;
+    line-height: 26px;
+}
+
+.panel h5 {
+    font-size: 18px;
+}
+
+.panel a {
+    color: #0099ff;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.panel a:hover {
+    text-decoration: none;
+    color: #ff6600;
+}
+
+.panel ul, .panel ol {
+    padding: 0;
+    padding-left: 24px;
+    margin: 0;
+}
+
+.panel li {
+    line-height: 24px;
+}
+
+.panel p, .panel ul, .panel ol {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.panel ol ol, .panel ul ol {
+    list-style-type: lower-roman;
+}
+
+.panel code, .panel pre {
+    border-radius: 3px;
+    background-color: #f7f7f7;
+    color: inherit;
+}
+
+.panel code {
+    font-family: Consolas, Monaco, Andale Mono, monospace;
+    margin: 0 2px;
+}
+
+.panel pre {
+    line-height: 1.7em;
+    overflow: auto;
+    padding: 6px 10px;
+    border-left: 5px solid #6CE26C;
+}
+
+.panel pre > code {
+    border: 0;
+    display: inline;
+    max-width: initial;
+    padding: 0;
+    margin: 0;
+    overflow: initial;
+    line-height: inherit;
+    font-size: .85em;
+    white-space: pre;
+    background: 0 0;
+}
+
+.panel code {
+    color: #666555;
+}
+
+.panel aside {
+    display: block;
+    float: right;
+    width: 390px;
+}
+
+.panel blockquote {
+    border-left: .5em solid #eee;
+    padding: 0 0 0 2em;
+    margin-left: 0;
+}
+
+.panel blockquote cite {
+    font-size: 14px;
+    line-height: 20px;
+    color: #bfbfbf;
+}
+
+.panel blockquote cite:before {
+    content: '\2014 \00A0';
+}
+
+.panel blockquote p {
+    color: #666;
+}
+
+.panel hr {
+    text-align: left;
+    color: #999;
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+}
+
+.panel dl {
+    padding: 0;
+}
+
+.panel dl dt {
+    padding: 10px 0;
+    margin-top: 16px;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.panel dl dd {
+    padding: 0 16px;
+    margin-bottom: 16px;
+}
+
+.panel dd {
+    margin-left: 0;
+}
+
+/* Button styles */
+.panel button, .panel input, .panel select, .panel textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+
+.panel button, .panel input {
+    line-height: normal;
+    overflow: visible;
+}
+
+.panel button::-moz-focus-inner, .panel input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.panel button, .panel input[type="button"], .panel input[type="reset"], .panel input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+    appearance: button;
+}
+
+.panel input[type=checkbox], .panel input[type=radio] {
+    cursor: pointer;
+}
+
+.panel input:not([type="image"]), .panel textarea {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.panel input[type="search"] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.panel input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+.panel label, .panel input, .panel select, .panel textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: normal;
+    margin-bottom: 18px;
+}
+
+.panel input[type=checkbox], .panel input[type=radio] {
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.panel input[type=text], .panel input[type=password], .panel textarea, .panel select {
+    display: inline-block;
+    width: 210px;
+    padding: 4px;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    height: 18px;
+    color: #808080;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.panel select, .panel input[type=file] {
+    height: 27px;
+    line-height: 27px;
+}
+
+.panel textarea {
+    height: auto;
+}
+
+/* Grey out placeholders */
+.panel :-moz-placeholder {
+    color: #bfbfbf;
+}
+
+.panel ::-webkit-input-placeholder {
+    color: #bfbfbf;
+}
+
+.panel input[type=text], .panel input[type=password], .panel select, .panel textarea {
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.panel input[type=text]:focus, .panel input[type=password]:focus, .panel textarea:focus {
+    outline: none;
+    border-color: rgba(82, 168, 236, 0.8);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* Button styles */
+.panel button {
+    display: inline-block;
+    padding: 4px 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    background-color: #007bff;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.panel button:hover, .panel button:focus {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #004085;
+    text-decoration: none;
+}
+
+.panel button:active {
+    background-color: #003d7a;
+    border-color: #003366;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.panel button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.65;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Forms in panel */
+.panel .form-group {
+    margin-bottom: 1rem;
+}
+
+.panel .form-group label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 700;
+}
+
+.panel .form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+
+.panel .form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(38, 143, 255, .25);
+}
+
+.panel .form-check-input {
+    position: relative;
+    margin-top: 0;
+    margin-right: .25rem;
+    margin-left: -1.25rem;
+}
+
+.panel .form-check-label {
+    margin-bottom: 0;
+}
+
+.panel .form-check {
+    display: block;
+    padding: .25rem 0;
+}

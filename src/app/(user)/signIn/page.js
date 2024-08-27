@@ -1,9 +1,10 @@
 // pages/register.js
 "use client"
 import { useState } from 'react';
-import { supabase } from '@/lib/supabase';
+import { createClient } from '@/lib/client';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+
 export default function Register() {
   const router=useRouter();
   const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ export default function Register() {
     password: ''
   });
   const [success, setSuccess] = useState(false);
-  
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,17 +25,20 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 处理表单提交逻辑，例如发送请求到API
-    const { data, error } = await supabase.auth.signInWithPassword({
+    setIsSubmitting(true);
+    const supabase = createClient();
+    const { error } = await supabase.auth.signInWithPassword({
   email: formData.email,
   password: formData.password,
 });
     if (error) {
       alert("error:"+error.message);
     } else {
+      setIsSubmitting(false);
       setSuccess(true);
-      const { data, error } = await supabase.auth.getSession()
+      //const { data, error } = await supabase.auth.getSession()
       //console.log(data);
-      alert('登录成功!即将返回主页');
+      alert('sign in successfully');
       setTimeout(() => {
         router.push('/');
       }, 3000);
@@ -64,7 +68,7 @@ export default function Register() {
             className=' p-2 border rounded'
             required
           />
-          <button type="submit" className=' p-2 bg-blue-500 active:bg-blue-600 text-white rounded'>Sign In</button>
+          <button disabled={isSubmitting} type="submit" className=' p-2 bg-blue-500 active:bg-blue-600 text-white rounded'>Sign In</button>
         </form>
         <p className='my-4'>register for your<Link href='/signUp' className='text-blue-500'> account</Link> </p>
         {success && <p className='mt-4 text-green-500'>Successfully Sign In!</p>}

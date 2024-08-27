@@ -6,7 +6,7 @@ export default function SubmitButton() {
     const router=useRouter();
     const handleSubmitClick = () => {
       if (!user) {
-        alert('请登录后提交');
+        alert('Please login first!');
       }else{
         router.push('/submit');
       }

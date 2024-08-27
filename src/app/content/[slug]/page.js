@@ -1,55 +1,63 @@
-
+import { createClient } from "@/lib/anoymous";
 import Image from "next/image"
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from 'rehype-raw';
+import '@/app/styles/slug.css';
 //import Head from "next/head";
-export const metadata = {
-  title: "test title",
-  description: "test description",
-  type: "article",
-  openGraph: {
-    title: "test metadata.title",
-    description: "test metadata.description",
-    type: "article"
-  }
-};
 
-export default function Page({ params }) {
+
+// export async function generateStaticParams() {
+//   "use server"
+//   const supabase=createClient();
+//   const {data,error}=await supabase.from('card').select('cardname');
+//   if(error){console.log(error);return [];}
+//   return data.map((card)=>({slug:card.cardname}));
+  
+// }
+
+export async function getPost(cardname) {
+  "use server"
+  const supabase=createClient();
+  const {data,error}=(await supabase.rpc('get_blog_by_name',{q_name:cardname}));
+  if(error){console.log(error);return null;}
+  return data; 
+}
+
+export default async function Page({ params,searchParams }) {
+  const {imgUrl}=searchParams;
+
+  const data=await getPost(decodeURIComponent(params.slug));
+  //console.log('print data');
+
   return (
-    <div className="bg-black bg-opacity-50  w-full h-screen container mx-auto  px-4 py-2 flex border-red-400 border-8">
+    <div id="slug" className="bg-rose-300 bg-opacity-50  w-full space-x-2  container mx-auto  px-4 py-2 flex ">
       {/* 左侧边栏 */}
-      <aside className="w-1/6 bg-gray-200 p-4 border-red-400 border-8">
-        {/* 这里可以添加左侧边栏内容 */}
-        <p>左侧边栏内容</p>
-      </aside>
+     
 
       {/* 主内容区域 */}
       <main className="flex-grow flex flex-col items-center">
-        <div className="w-full  px-4 ">
+        {/* <div className="w-full  px-4 ">
           <h1 className="text-left text-3xl font-bold mb-4 text-orange-400 ">{params.slug}</h1>
           <h2 className="">
-            {/* 描述内容  */}
-            <p>这是一个测试页面</p>
+           
+            {data[0].post_des}
           </h2>
         </div>
-        
-        <div className="px-16 py-2 border-red-400 border-8">
+         */}
+        <div className="px-4 py-2  border-2 rounded-md border-stone-950">
           <Image
             
-            src="/CardImages/1.png"
+            src={imgUrl}
             alt={`${params.slug}`}
-            width={700}
+            width={500}
             height={350}
-            className="sm:max-w-[400px] sm:min-w-[100px]
-              md:max-w-[512px]   
-              lg:max-w-[680px]   
-              max-w-full"
+            
           />
         </div>
-        <article className="flex flex-grow bg-white border-4 border-pink-400">
-        <p>dasdasdsdsadasdasdasda</p>
-        <p>dasdasdsdsadasdasdasda</p>
-        <p>dasdasdsdsadasdasdasda</p>
+        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>{data[0].post_content}</ReactMarkdown>
         
-        </article>
+        
         
       </main>
 
