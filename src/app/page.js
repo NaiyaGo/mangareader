@@ -32,7 +32,7 @@ export default async function Home({searchParams}) {
         console.error(`无法访问: ${dirPath}`);
     } 
   }
-  findFile('fileposData.json');
+  findFile('/');
   return (
 
         <div className="flex">
