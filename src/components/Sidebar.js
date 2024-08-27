@@ -7,7 +7,7 @@ import { replaceCate } from '@/lib/replaceCate';
 
 
 const Sidebar = async () => {
-    const file=await fs.readFile(process.cwd() + '/app/SidebarData.json', 'utf8');
+    const file=await fs.readFile(process.cwd() + '/SidebarData.json', 'utf8');
     const categoryData=JSON.parse(file);
   
    
