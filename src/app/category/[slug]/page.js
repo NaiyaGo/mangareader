@@ -15,6 +15,8 @@ import {promises as fs} from 'fs';
 //   }
 
   export async function generateStaticParams() {
+    console.log('Looking for file at:', process.cwd()+'/public/SidebarData.json');
+    const filePath=process.cwd()+'/public/SidebarData.json';
     try {
       // 检查文件是否存在
       await fs.access(filePath, fs.constants.F_OK);
