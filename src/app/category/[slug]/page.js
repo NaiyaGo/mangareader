@@ -14,17 +14,9 @@ import {promises as fs} from 'fs';
 //     }
 //   }
 
-export async function generateStaticParams() {
-    let categoryData = null;
-    try {
-      const response = await fetch('/fileposData.json');
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      categoryData = await response.json();
-    } catch (error) {
-      console.error('Error fetching JSON data:', error);
-    }
+  export async function generateStaticParams() {
+    const file=await fs.readFile( process.cwd()+'/public/fileposData.json', 'utf8');
+    const categoryData=JSON.parse(file);
 
     return categoryData.map((category) => {
       return {

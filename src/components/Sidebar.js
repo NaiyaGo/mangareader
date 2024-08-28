@@ -4,21 +4,23 @@ import SubmitButton from './submitButton';
 import Link from 'next/link';
 import { replaceCate } from '@/lib/replaceCate';
 
+export async function getCategories() {
+  "use server"
 
+  const file=await fs.readFile(process.cwd()+'/public/SidebarData.json', 'utf8');
+  const categoryData=JSON.parse(file);
+
+  return categoryData.map((category) => {
+    return {
+        slug: category.cate_name,
+      };
+  });
+}
 const Sidebar = async () => {
-  let categoryData = null;
-  try {
-    const response = await fetch('/fileposData.json');
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    categoryData = await response.json();
-  } catch (error) {
-    console.error('Error fetching JSON data:', error);
-  }
+  
     // 如果 localStorage 中没有数据，则从服务器获取数据
     
-
+  const categoryData=await getCategories();
   
   
   
