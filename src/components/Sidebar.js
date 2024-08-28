@@ -6,32 +6,36 @@ import { replaceCate } from '@/lib/replaceCate';
 import {promises as fs} from 'fs';
 export async function getCategories() {
   "use server"
-  console.log('Looking for file at:', process.cwd()+'/public/SidebarData.json');
-  const filePath=process.cwd()+'/public/SidebarData.json';
-  if(fs.existsSync(filePath)){
-    console.log('file exists');
-    const file=await fs.readFile( process.cwd()+'/public/SidebarData.json', 'utf8');
-    const categoryData=JSON.parse(file);
+  try {
+    // 检查文件是否存在
+    await fs.access(filePath, fs.constants.F_OK);
+    console.log('File exists at build time');
 
-  return categoryData.map((category) => {
-    return {
-        slug: category.cate_name,
-      };
-  });
-  }else{
-    console.log('Detect Runtime phase:', 'use fetch instead');
-    try {
-      const response = await fetch('/SidebarData.json'); // 确保文件在 public 目录
-      if (!response.ok) throw new Error('Network response was not ok');
-      const data = await response.json();
-      const categoryData=data.map((category) => {
+    // 文件存在，读取文件内容
+    const file = await fs.readFile(filePath, 'utf8');
+    const categoryData = JSON.parse(file);
+
+    return categoryData.map((category) => {
         return {
-            slug: data.cate_name,
-          };
-      });
-      return categoryData;
-    } catch (error) {
-        console.error('Error fetching data:', error);
+          cate_name: category.cate_name,
+        };
+    });
+} catch (error) {
+    console.log('File does not exist at build time or cannot be accessed. Switching to runtime fetch.');
+
+    try {
+        // 在运行时使用 fetch 获取数据
+        const response = await fetch('/SidebarData.json'); // 确保文件在 public 目录
+        if (!response.ok) throw new Error('Network response was not ok');
+        const data = await response.json();
+        
+        return data.map((category) => {
+            return {
+                cate_name: category.cate_name,
+            };
+        });
+    } catch (fetchError) {
+        console.error('Error fetching data:', fetchError);
         return [];
     }
   }
