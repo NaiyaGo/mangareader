@@ -55,7 +55,6 @@ export default function WritePage() {
     setIsSubmitting(true);
     const fileUri= await transformImage(productImage);
     const imageUrl= await uploadImage(fileUri);
-    const supabase = createClient();
     //const {data,error}=await supabase.auth.getSession();
     //const token=data?.session?.access_token;
     console.log(selectedOption);
@@ -71,7 +70,6 @@ export default function WritePage() {
 
     const response = await fetch('/api/supabase', {
       method: 'POST',
-      headers: {'Authorization': `Bearer ${token}`},
       body: formData,
     });
     if (!response.ok) throw new Error('Network response was not ok');
