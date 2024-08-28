@@ -9,7 +9,7 @@ import ToolGrid from "@/components/ToolGrid";
 export default async function Home({searchParams}) {
 
   //console.log(await supabase.from('card').select('*,category!inner(*)').eq('category.cate_name','Just-Share'));
-  console.log('cwd=',process.cwd());
+
 
   return (
 

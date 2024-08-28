@@ -1,5 +1,4 @@
 "use server"
-import {promises as fs} from 'fs';
 import React from 'react';
 import SubmitButton from './submitButton';
 import Link from 'next/link';
@@ -7,10 +6,16 @@ import { replaceCate } from '@/lib/replaceCate';
 
 
 const Sidebar = async () => {
-    const file=await fs.readFile( '/vercel/output/fileposData.json', 'utf8');
-    const categoryData=JSON.parse(file);
-  
-   
+  let categoryData = null;
+  try {
+    const response = await fetch('/fileposData.json');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    categoryData = await response.json();
+  } catch (error) {
+    console.error('Error fetching JSON data:', error);
+  }
     // 如果 localStorage 中没有数据，则从服务器获取数据
     
 
@@ -27,7 +32,7 @@ const Sidebar = async () => {
       </div>
       <div className="overflow-y-auto flex-grow">
         <ul className="divide-y divide-gray-200">
-          {categoryData.map((category, index) => {
+          {categoryData?.map((category, index) => {
             const displayName=replaceCate(category.cate_name);
             return (
             <li key={index}  className="flex justify-between items-center p-4 hover:bg-gray-50 cursor-pointer text-xs">
