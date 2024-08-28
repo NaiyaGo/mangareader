@@ -3,7 +3,7 @@ import React from 'react';
 import SubmitButton from './submitButton';
 import Link from 'next/link';
 import { replaceCate } from '@/lib/replaceCate';
-
+import {promises as fs} from 'fs';
 export async function getCategories() {
   "use server"
 
