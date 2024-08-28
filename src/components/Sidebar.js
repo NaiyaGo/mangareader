@@ -12,7 +12,7 @@ export async function getCategories() {
 
   return categoryData.map((category) => {
     return {
-        slug: category.cate_name,
+        cate_name:category.cate_name,
       };
   });
 }
