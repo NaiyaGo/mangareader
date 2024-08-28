@@ -15,7 +15,7 @@ import {promises as fs} from 'fs';
 //   }
 
   export async function generateStaticParams() {
-    const file=await fs.readFile( process.cwd()+'/public/fileposData.json', 'utf8');
+    const file=await fs.readFile( process.cwd()+'/public/SidebarData.json', 'utf8');
     const categoryData=JSON.parse(file);
 
     return categoryData.map((category) => {
