@@ -20,6 +20,7 @@ module.exports = {
       backgroundImage: {
         'happy-birthday': "url('/happy.png')",
         'harbour': "url('/harbour.jpg')",
+        'homepage': "url('/homepage.png')",
       },
       colors: {
         border: "hsl(var(--border))",

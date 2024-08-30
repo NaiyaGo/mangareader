@@ -1,15 +1,10 @@
-import Sidebar from "@/components/Sidebar";
-import MainContent from "@/components/MainContent";
+
+import "@/app/styles/home.css";
 export default function CateLayout({ children }) {
   
     return (
-    <div className="flex">
-        <Sidebar />
-        <div className="flex-1 clearfix">
-            <MainContent />
-            {children}        
-        </div>
-    </div>
-      
+      <div>
+        {children}   
+      </div>
     );
   }

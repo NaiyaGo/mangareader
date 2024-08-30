@@ -1,0 +1,30 @@
+
+
+  /* Container */
+  .containerPage {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* 页眉、内容、页脚 */
+    grid-template-columns: auto; /* 边栏:主内容 比例约为1:3 */
+    grid-template-areas: 
+      "header header"  /* 页眉占据整个行 */
+      "sidebar main"   /* 边栏和主内容在第二行 */
+      "footer footer"; /* 页脚占据整个行 */         /* 网格间隙 */
+    width: 100%; /* 最大宽度 */
+    margin: 0 auto;   /* 居中对齐 */
+  }
+  
+  /* Header */
+  .headContent {
+    grid-area: header;
+ 
+    text-align: center;
+  }
+  
+  
+  /* Footer */
+  .footerContent {
+    grid-area: footer;
+    padding: 20px;
+    text-align: center;
+  }
+  

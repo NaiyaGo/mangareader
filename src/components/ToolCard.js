@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { replaceCate } from '@/lib/replaceCate';
 //import { useRouter } from 'next/router';
+import DeleteButton from './DeleteButton';
 const ToolCard = ({ tool }) => {
   
   const displayName=replaceCate(tool.category.cate_name);
@@ -16,12 +17,13 @@ const ToolCard = ({ tool }) => {
           height={192}  className="lazyload w-full h-48 object-cover rounded-lg" />
         </Link>
         
-        <div className='p-1'>
+        <div className='p-1 '>
             <div>
                 <p className="text-sm text-gray-600 antialiased "><Link href={`/content/${tool.cardname}`}>{tool.carddescription[0].page_intro}</Link></p>
             </div>
-            <div>                
-                <p className="inline-block rounded-lg  text-sm p-1 text-rose-300 bg-indigo-400 hover:text-white hover:bg-indigo-600 antialiased "><Link href={`/category/${tool.category.cate_name}`}>✧:{displayName}</Link></p>    
+            <div className='relative '>                
+                <p className="inline-block rounded-lg  text-sm p-1 text-gray-700 bg-indigo-400 hover:text-white hover:bg-indigo-600 antialiased "><Link href={`/category/${tool.category.cate_name}`}>✧:{displayName}</Link></p>    
+                <DeleteButton  cardId={tool.id} />
             </div>
             
         </div>

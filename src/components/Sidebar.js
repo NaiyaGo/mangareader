@@ -53,7 +53,7 @@ const Sidebar = async () => {
 
   //console.log(categories);
   return (
-    <div className="mt-1 ml-1 w-64 bg-white-200 shadow-md rounded-lg overflow-hidden flex flex-col h-screen sticky top-0">
+    <div className="mt-1 ml-1 w-64  shadow-md rounded-lg overflow-hidden flex flex-col max-h-screen min-h-full sticky top-0 bg-slate-200 bg-opacity-50">
       <div className="p-4  shadow-sm text-gray-700 flex space-x-1 justify-between items-center">
         <h2 className=" text-xl font-bold"><Link href={'/'}>Manga Reader</Link></h2>
         <SubmitButton />
@@ -63,7 +63,7 @@ const Sidebar = async () => {
           {categoryData?.map((category, index) => {
             const displayName=replaceCate(category.cate_name);
             return (
-            <li key={index}  className="flex justify-between items-center p-4 hover:bg-gray-50 cursor-pointer text-xs">
+            <li key={index}  className="flex justify-between items-center p-4 hover:bg-gray-300 cursor-pointer text-xs hover:shadow-sm">
               <span className="text-gray-700"><Link href={`/category/${category.cate_name}`}>{displayName}</Link></span>
               
             </li>);

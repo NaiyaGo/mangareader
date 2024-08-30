@@ -13,7 +13,7 @@ export default function SubmitButton() {
     };
 
     return (
-    <button className="bg-indigo-500 hover:bg-blue-700 text-white font-bold  p-1 text-xs rounded "
+    <button className="bg-indigo-500 hover:bg-indigo-400 text-white font-bold  p-1 text-xs rounded "
         onClick={handleSubmitClick}>
           Submit
     </button>

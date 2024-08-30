@@ -9,16 +9,16 @@ export default  function AuthButton() {
   const { user, signOut } = useAuth();
   //console.log("useAuth AuthButton");
   return user ? (
-    <div className="flex items-center gap-4">
-        <p>  {user.email}
+    <div className="flex items-center justify-around gap-4 font-extrabold text-white ">
+        <p className="py-2 px-4 rounded-md bg-indigo-500">  {user.email}
         </p>
-        <button className="py-2 px-4 rounded-md no-underline bg-indigo-500 hover:bg-indigo-300"
+        <button className="py-2 px-4 rounded-md no-underline  bg-indigo-500 hover:bg-indigo-300"
         onClick={signOut}>
           Logout
         </button>
     </div>
     ) :(
-    <div className="flex justify-end">    
+    <div className="flex justify-end font-extrabold text-rose-600">    
             <Link
             href="/signIn"
             className="py-2 px-3 inline-flex  rounded-md no-underline bg-indigo-500 hover:bg-indigo-300"
