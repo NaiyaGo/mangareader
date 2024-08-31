@@ -47,8 +47,8 @@ export default function Register() {
 
   return (
     <div className='flex flex-col justify-center items-center min-h-screen '>
-      <div className='w-1/4 text-center shadow-xl border rounded-md'>
-        <h1 className='mb-4 text-xl text-center'>Register your account here!</h1>
+      <div className='w-1/4 text-center shadow-xl border-slate-500 rounded-lg bg-slate-200 bg-opacity-50'>
+        <h1 className='mb-4 text-xl font-bold font-sans text-slate-500 text-center'>Register your account here!</h1>
         <form className='flex flex-col divide-y-4 > * + *' onSubmit={handleSubmit}>
           <input
             type="text"

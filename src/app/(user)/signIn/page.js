@@ -45,9 +45,9 @@ export default function Register() {
   };}
 
   return (
-    <div className='flex flex-col justify-center items-center min-h-screen border-black border-4'>
-      <div className='w-1/4 text-center shadow-xl border-black border-2 rounded-md'>
-        <h1 className='mb-4 text-xl text-center'>Welcome</h1>
+    <div className='flex flex-col justify-center items-center min-h-screen '>
+      <div className='w-1/4 text-center shadow-xl border-slate-500 border rounded-md bg-slate-200 bg-opacity-50'>
+        <h1 className='mb-4 text-xl text-center font-sans text-slate-500 font-bold '>Welcome</h1>
         <form className='flex flex-col divide-y-4 > * + *' onSubmit={handleSubmit}>
 
           <input
@@ -70,7 +70,7 @@ export default function Register() {
           />
           <button disabled={isSubmitting} type="submit" className=' p-2 bg-blue-500 active:bg-blue-600 text-white rounded'>Sign In</button>
         </form>
-        <p className='my-4'>register for your<Link href='/signUp' className='text-blue-500'> account</Link> </p>
+        <p className='my-4'><Link href='/signUp' className='text-blue-500'>Register For Your Account</Link> </p>
         {success && <p className='mt-4 text-green-500'>Successfully Sign In!</p>}
 
       </div>
