@@ -54,11 +54,11 @@ export default async function ToolGrid({selectedOption=''}) {
       </div> :(
         
 
-        <div className="px-2 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6  bg-slate-200 bg-opacity-50">
+        <div className="px-2 py-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 rounded-lg bg-slate-200 bg-opacity-50 w-fit mx-3">
           {tools.map((tool, index) => {
         //console.log(tool);
             return(
-              <div key={index} className="h-auto ">
+              <div key={index} className="h-auto  ">
               <ToolCard  tool={tool}  />
               </div>
             );

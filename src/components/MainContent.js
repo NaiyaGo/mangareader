@@ -10,15 +10,13 @@ const MainContent = () => {
           <div className="text-gray-600 text-sm mb-2 font-mono">
           MangaReader is a platform that collects various interesting short comics and novels, offering a range of comic readers and related tools, including but not limited to image generators, AI characters, and tools for converting between voice, text, images, and videos. You can also freely share your own comic strips and favorite tools on the site.
           </div>
-          <div className="flex flex-wrap gap-2">
-            {['Freemium Tools', 'Free Tools', 'Premium Tools', 'Trial Tools', 'Applications', 'Browser extensions'].map((tag, index) => (
-              <span key={index} className="bg-gray-400 text-gray-700 px-2 py-1 rounded-full text-xs">
+          <div className='flex flex-auto flex-row'>
+            <div className=" flex flex-wrap gap-2 items-center  max-h-min">{['Freemium Tools', 'Free Tools', 'Premium Tools', 'Trial Tools', 'Applications', 'Browser extensions'].map((tag, index) => (
+              <span key={index} className="text-center bg-gray-400 text-gray-700 px-2 py-1 rounded-full text-xs">
                 {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-        <div>
+              </span>))}
+              </div>
+           <div className='ml-auto'>   
         {<AuthButton/ >}
           {/* <div className="relative">
             <input
@@ -32,6 +30,9 @@ const MainContent = () => {
               </svg>
             </button>
           </div> */}
+          </div>
+            
+          </div>
           
         </div>
       </div>

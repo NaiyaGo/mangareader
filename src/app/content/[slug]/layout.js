@@ -7,7 +7,7 @@ export default function RootLayout({ children }) {
     
         
         
-        <div className="bg-happy-birthday bg-cover bg-fixed ">{children}</div>
+        <div className="z-10 bg-happy-birthday bg-cover bg-fixed px-8 rounded-lg">{children}</div>
       
     );
   }

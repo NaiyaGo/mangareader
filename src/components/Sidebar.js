@@ -53,7 +53,7 @@ const Sidebar = async () => {
 
   //console.log(categories);
   return (
-    <div className="mt-1 ml-1 w-64  shadow-md rounded-lg overflow-hidden flex flex-col max-h-screen min-h-full sticky top-0 bg-slate-200 bg-opacity-50">
+    <div className="mt-1 ml-1 w-64  shadow-md rounded-lg overflow-hidden hidden md:flex md:flex-col max-h-screen min-h-full sticky top-0 bg-slate-200 bg-opacity-50  ">
       <div className="p-4  shadow-sm text-gray-700 flex space-x-1 justify-between items-center">
         <h2 className=" text-xl font-bold"><Link href={'/'}>Manga Reader</Link></h2>
         <SubmitButton />

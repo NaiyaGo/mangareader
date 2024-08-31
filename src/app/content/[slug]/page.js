@@ -3,7 +3,7 @@ import Image from "next/image"
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from 'rehype-raw';
-import '@/app/styles/slug.css';
+import "@/app/styles/markdown.css";
 //import Head from "next/head";
 
 
@@ -31,7 +31,7 @@ export default async function Page({ params,searchParams }) {
   //console.log('print data');
 
   return (
-    <div id="slug" className="bg-rose-300 bg-opacity-50  w-full space-x-2  container mx-auto  px-4 py-2 flex ">
+    <div  className={`panel bg-rose-300 bg-opacity-50  w-full space-x-2  container mx-auto   flex` }>
       {/* 左侧边栏 */}
      
 

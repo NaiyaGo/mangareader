@@ -6,7 +6,7 @@ import {AuthProvider} from "@/context/authContext";
 import Sidebar from "@/components/Sidebar";
 import MainContent from "@/components/MainContent";
 const inter = Inter({ subsets: ["latin"] });
-
+import "@/app/styles/home.css";
 export const metadata = {
   title: "MangaReader - Tools for Manga Lovers",
   description: "MangaReader is a collection of tools for manga lovers. It includes manga readers, downloaders, and other tools to enhance your manga reading experience.",
@@ -23,9 +23,9 @@ export default function RootLayout({ children }) {
             <header className='headContent'>
               <MainContent />
             </header>
-            <div className="flex">
+            <div className="mainContent flex">
               <Sidebar />
-              <main className="flex-1 clearfix">
+              <main className="flex-1  ">
                 {children}
               </main>
             </div>
