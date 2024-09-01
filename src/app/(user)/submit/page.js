@@ -8,7 +8,9 @@ import '@/app/styles/markdown.css';
 import {Textarea} from '@/components/ui/textarea';
 import {uploadImage} from '@/lib/cloudinary';
 import { createClient } from '@/lib/client';
+import { transformImage } from '@/lib/transformImage';
 import {marked} from 'marked';
+import { useAuth } from '@/context/authContext';
 import {
   Select,
   SelectContent,
@@ -20,15 +22,7 @@ import {
 import { replaceCate } from '@/lib/replaceCate';
 const SimpleMDE = dynamic(() => import('react-simplemde-editor'), { ssr: false });
 
-async function transformImage(image) {
-  //console.log(typeof image);
-  const imageData = await image.arrayBuffer();
-  const mime = image.type;
-  const encoding = 'base64';
-  const base64Data = Buffer.from(imageData).toString('base64');
-  const fileUri = 'data:' + mime + ';' + encoding + ',' + base64Data;
-  return fileUri;
-}
+
 
 export default function WritePage() {
   const [content, setContent] = useState('');
@@ -40,6 +34,8 @@ export default function WritePage() {
   const [selectedOption, setSelectedOption] = useState(1);
   const [categories, setCategories] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { user,isLogin } = useAuth();
+  //console.log('Submit page isLogin:',isLogin);
   //const ref=useRef();
   const handleOptionChange = (e) => {
     // console.log('handleOptionChange e is',typeof e,":",e);
@@ -57,7 +53,7 @@ export default function WritePage() {
     const imageUrl= await uploadImage(fileUri);
     //const {data,error}=await supabase.auth.getSession();
     //const token=data?.session?.access_token;
-    console.log(selectedOption);
+    //console.log(selectedOption);
     //console.log(imageUrl);
     const formData = new FormData();
     formData.append('title', title);
@@ -130,21 +126,24 @@ export default function WritePage() {
     const fetchCategory = async () => {
       const supabase=createClient();
       const {data,error}= await supabase.from('category').select('*');
-      console.log(data);
+      //console.log(data);
       setCategories(data);
 
     };
-
   
-    fetchCategory();
-
+  
+    
+    
+    if(user!==null&&user!==undefined){
+      fetchCategory();
+    }
 
     
-  },[]);
+  },[isLogin]);
   //console.log(categories);
   //console.log(selectedOption);
 
-  return (
+  return !isLogin?(<div className='container my-2 rounded-lg mx-auto p-4 font-bold text-3xl text-center bg-slate-200 bg-opacity-50'>You Should Login First</div>):(
     <div className='container my-2 rounded-lg mx-auto p-4 bg-white  '>
     <h1 className='text-2xl font-bold  mb-4'>Contribute to our collective resources</h1>
     <form className="" onSubmit={handleSave}>

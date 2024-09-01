@@ -21,21 +21,21 @@ export default function Register() {
       [name]: value
     });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     // 处理表单提交逻辑，例如发送请求到API
     setIsSubmitting(true);
     const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({
+    const {data, error } = await supabase.auth.signInWithPassword({
   email: formData.email,
   password: formData.password,
 });
     if (error) {
-      alert("error:"+error.message);
+      console.error("error:"+error.message);
     } else {
       setIsSubmitting(false);
       setSuccess(true);
+      
       //const { data, error } = await supabase.auth.getSession()
       //console.log(data);
       alert('sign in successfully');

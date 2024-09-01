@@ -47,7 +47,7 @@ export default async function ToolGrid({selectedOption=''}) {
     // tool.des[0].page
    //console.log(data);
       
-      console.log('tools.length:',tools.length," typeof:",typeof tools.length);
+      //console.log('tools.length:',tools.length," typeof:",typeof tools.length);
     {
       return (tools.length===0?<div className="flex items-center justify-center min-h-full text-5xl font-extrabold text-rose-500 font-mono">
         More tools are coming soon!

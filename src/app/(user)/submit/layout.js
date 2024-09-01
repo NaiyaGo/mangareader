@@ -10,7 +10,7 @@ export default function SubmitLayout({ children }) {
     
         
         
-    <div className="flex flex-col h-full bg-harbour bg-cover bg-opacity-50 mx-3 rounded-lg">
+    <div className="flex flex-col max-h-full bg-harbour bg-cover bg-opacity-50 mx-3 rounded-lg">
         <div className="flex-grow mx-auto">
         {children}
         </div>

@@ -6,7 +6,7 @@ export default function SubmitButton() {
     const router=useRouter();
     const handleSubmitClick = () => {
       if (!user) {
-        alert('Please login first!');
+        alert('Please login first before submitting your article!');
       }else{
         router.push('/submit');
       }

@@ -22,10 +22,6 @@ export async function HEAD(request) {}
  
 export async function POST(request) {
   // 从请求头中获取会话令牌
-  const token = request.headers.get('Authorization')?.replace('Bearer ', '');
-  if (!token) {
-    return new Response('Unauthorized', { status: 401 });
-  }
   
   // 使用 Supabase 验证令牌并获取用户信息
   const supabase=createClient();
@@ -47,6 +43,7 @@ export async function POST(request) {
   
   return new Response(`/content/${title}`, {
     headers: { 'content-type': 'text/plain' },
+    status:200
   });
 }
  

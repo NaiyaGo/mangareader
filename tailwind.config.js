@@ -9,14 +9,22 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    
     container: {
       center: true,
       padding: "2rem",
       screens: {
         "2xl": "1400px",
       },
+      
     },
     extend: {
+      
+      Height: {
+       '90dvh':'90dvh',
+        '90svh': '90svh',
+        '90lvh': '90lvh',
+      },
       backgroundImage: {
         'happy-birthday': "url('/happy.png')",
         'harbour': "url('/harbour.jpg')",
