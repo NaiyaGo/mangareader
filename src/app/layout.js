@@ -13,6 +13,7 @@ import "@/app/styles/home.css";
 export const metadata = {
   title: "MangaReader - Tools for Manga Lovers",
   description: "MangaReader is a collection of tools for manga lovers. It includes manga readers, downloaders, and other tools to enhance your manga reading experience.",
+  
 };
 
 
@@ -37,7 +38,15 @@ export default function RootLayout({ children }) {
                 {children}
               </main>
             </div>
-            <footer className="footerContent"></footer>
+            <footer className="footerContent">
+            <div className="container mx-auto">
+              <nav className="flex justify-center space-x-4">
+
+                <a className="hover:text-gray-400" href="https://RikaCelery.github.io">RikaCelery</a>
+
+              </nav>
+            </div>
+            </footer>
           </div>
         </AuthProvider>
       </body>
