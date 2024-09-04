@@ -60,6 +60,7 @@ export async function POST(request) {
   params.append('probability', 'false');
   params.append('multidirectional_recognize', 'false');
     const access_token=await getAccessToken();
+    console.log('access_token:',access_token);
     const response=await fetch('https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=' +access_token ,
       {
         method: 'POST',
