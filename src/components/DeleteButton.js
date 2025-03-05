@@ -23,14 +23,12 @@ export default function DeleteButton({cardId}) {
         const fetchUser=async()=>{
             const supabase = createClient();
             const { data, error } = await supabase.auth.getUser();
-            if (data) {
+            if (data&&data.user) {
+                //console.log(data);
                 const userId = data.user.id;
-                if(userId==='c02ceeac-cb6c-4649-8726-52b613445f5e'){
-                    //console.log('isAdmin',true);
-                    setIsAdmin(true);
-                }else{
-                    //console.log('isAdmin',false);
-                }
+                
+                const is_admin= await supabase.from('users').select('is_admin').eq('id',userId);
+                setIsAdmin(is_admin);
             }
         }
         fetchUser();

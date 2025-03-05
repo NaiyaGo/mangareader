@@ -42,7 +42,6 @@ export default function RootLayout({ children }) {
             <div className="container mx-auto">
               <nav className="flex justify-center space-x-4">
 
-                <a className="hover:text-gray-400" href="https://RikaCelery.github.io">RikaCelery</a>
 
               </nav>
             </div>
